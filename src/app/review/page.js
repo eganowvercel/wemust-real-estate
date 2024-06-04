@@ -109,44 +109,6 @@ function page() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              {/* <div className="container mt-5">
-      <div className="card">
-        <div className="card-header text-center">
-          <h2>{data?.title}</h2>
-        </div>
-        <div className="card-body">
-          <div className="mb-3 row">
-            <label className="col-sm-4 col-form-label"><strong>Name:</strong></label>
-            <div className="col-sm-8">
-              <p className="form-control-plaintext">{formData?.name}</p>
-            </div>
-          </div>
-          <div className="mb-3 row">
-            <label className="col-sm-4 col-form-label"><strong>Phone:</strong></label>
-            <div className="col-sm-8">
-              <p className="form-control-plaintext">{formData?.phone}</p>
-            </div>
-          </div>
-          <div className="mb-3 row">
-            <label className="col-sm-4 col-form-label"><strong>Email:</strong></label>
-            <div className="col-sm-8">
-              <p className="form-control-plaintext">{formData?.email}</p>
-            </div>
-          </div>
-          <div className="mb-3 row">
-            <label className="col-sm-4 col-form-label"><strong>Price:</strong></label>
-            <div className="col-sm-8">
-              <p className="form-control-plaintext">{formData?.price}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-footer text-center">
-          <button className="btn btn-primary">Confirm Payment</button>
-        </div>
-      </div>
-      
-    </div> */}
-
               <div
                 style={{
                   backgroundColor: "white", // 50% transparency
@@ -209,7 +171,7 @@ function page() {
                 <div className="col-md-5  mx-auto">
                   <div className="d-grid">
                     <button
-                    disabled={loading}
+                      disabled={loading}
                       onClick={onSubmit}
                       type="submit"
                       className="ud-btn btn-danger mt-2"
