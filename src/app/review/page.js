@@ -9,18 +9,20 @@ import { BASE_URL } from "@/utilis/constants";
 import axios from "axios";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useEffect } from "react";
 
-function page() {
+function Page() {
   const [formData, setFormData] = useState();
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const query = searchParams.get("q");
-
-  const data = listings.filter((elm) => elm.id == query)[0] || listings[0];
-
-  // console.log(data);
+  
+  function GetTitle() {
+    const searchParams = useSearchParams();
+    const query = searchParams.get("q");
+  
+    const data = listings.filter((elm) => elm.id == query)[0] || listings[0];
+    return <div class="ms-auto">{data?.title}</div>;
+  }
 
   function getDuration() {
     if (formData?.duration >= 12) {
@@ -50,7 +52,7 @@ function page() {
       ip_address: formData.iP,
     };
 
-    console.log(postData);
+    // console.log(postData);
     setLoading(true);
 
     try {
@@ -72,7 +74,7 @@ function page() {
     setFormData(JSON.parse(localStorage.getItem("formData")));
   }, []);
   return (
-    <div>
+    <Suspense fallback={<p>...loading</p>}>
       {/* <Header /> */}
       <DefaultHeader />
       {/* End Main Header Nav */}
@@ -153,7 +155,8 @@ function page() {
                 <div class="border-top px-2 mx-2"></div>
                 <div class="p-2 d-flex">
                   <b class="col-4">Property title</b>
-                  <div class="ms-auto">{data?.title}</div>
+                  {/* <div class="ms-auto">{data?.title}</div> */}
+                <GetTitle/>
                 </div>
                 <div class="p-2 d-flex">
                   <b class="col-4">Duration</b>
@@ -190,8 +193,8 @@ function page() {
       <section className="footer-style1 pt60 pb-0">
         <Footer />
       </section>
-    </div>
+    </Suspense>
   );
 }
 
-export default page;
+export default Page;

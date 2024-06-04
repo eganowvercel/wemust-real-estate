@@ -32,10 +32,7 @@ const About = () => {
             <div className="col-lg-12">
               <div className="breadcumb-style1">
                 <h2 className="title">About Us</h2>
-                {/* <div className="breadcumb-list">
-                  <a href="#">Home</a>
-                  <a href="#">About</a>
-                </div> */}
+               
               </div>
             </div>
           </div>
@@ -49,21 +46,21 @@ const About = () => {
           <div className="row" data-aos="fade-up" data-aos-delay="300">
             <div className="col-lg-6">
               <h2>
-                We're on a Mission to Change{" "}
+                We&apos;re on a Mission to Change{" "}
                 <br className="d-none d-lg-block" /> the Way You View Real
                 Estate.
               </h2>
             </div>
             <div className="col-lg-6">
               <p className="text mb25">
-                Finding the perfect home or investment property shouldn't be a
+                Finding the perfect home or investment property shouldn&apos;t be a
                 stressful experience. Our mission is to simplify the real estate
                 process and make it enjoyable for you.
               </p>
               <p className="text mb55">
                 With a commitment to transparency, integrity, and personalized
-                service, we strive to exceed your expectations. Whether you're
-                buying, selling, or investing, we're here to guide you every
+                service, we strive to exceed your expectations. Whether you&apos;re
+                buying, selling, or investing, we&apos;re here to guide you every
                 step of the way.
               </p>
               <div className="row">
@@ -151,7 +148,7 @@ const About = () => {
               >
                 <div className="mb30">
                   <h2 className="title text-capitalize">
-                    Let’s find the right <br className="d-none d-md-block" />{" "}
+                    Let&apos;s find the right <br className="d-none d-md-block" />
                     selling option for you
                   </h2>
                 </div>
@@ -175,7 +172,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-12" data-aos="fade-up">
               <div className="main-title text-center">
-                <h6>Trusted by the World’s Best</h6>
+                <h6>Trusted by the World&apos;s Best</h6>
               </div>
             </div>
             <div className="col-lg-12 text-center">
