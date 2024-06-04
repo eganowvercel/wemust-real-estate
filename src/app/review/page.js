@@ -5,6 +5,8 @@ import MobileMenu from "@/components/common/mobile-menu";
 import FeaturedListings from "@/components/home/home-v1/FeatuerdListings";
 import Header from "@/components/home/home-v1/Header";
 import listings from "@/data/listings";
+import { BASE_URL } from "@/utilis/constants";
+import axios from "axios";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
@@ -12,12 +14,13 @@ import { useEffect } from "react";
 
 function page() {
   const [formData, setFormData] = useState();
+  const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const query = searchParams.get("q");
 
   const data = listings.filter((elm) => elm.id == query)[0] || listings[0];
 
-  console.log(data);
+  // console.log(data);
 
   function getDuration() {
     if (formData?.duration >= 12) {
@@ -30,8 +33,42 @@ function page() {
     }
   }
 
+  async function onSubmit() {
+    const postData = {
+      payerInfo: {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        mobile_number: formData.phone,
+      },
+      customer_id: "4BDFB5479C224EE9",
+      callback_url: "https://localhost:3000",
+      amount: formData.price
+        ?.replace("$", "")
+        .replace("₵", "")
+        .replace(/,/g, ""),
+      ip_address: formData.iP,
+    };
+
+    console.log(postData);
+    setLoading(true);
+
+    try {
+      const sendRequest = await axios.post(`${BASE_URL}`, postData);
+      setLoading(false);
+      if (sendRequest.data.public_key) {
+        setLoading(false);
+        window.location.href = `https://eganow-mc-checkout.vercel.app/${sendRequest.data.public_key}`;
+      }
+      // console.log(sendRequest.data.public_key);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    console.log(localStorage.getItem("formData"));
+    // console.log(localStorage.getItem("formData"));
     setFormData(JSON.parse(localStorage.getItem("formData")));
   }, []);
   return (
@@ -67,7 +104,11 @@ function page() {
           {/* End header */}
 
           <div className="row">
-            <div className="col-lg-6 mx-auto " data-aos="fade-up" data-aos-delay="200">
+            <div
+              className="col-lg-6 mx-auto "
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               {/* <div className="container mt-5">
       <div className="card">
         <div className="card-header text-center">
@@ -108,10 +149,9 @@ function page() {
 
               <div
                 style={{
-                  backgroundColor: 'white', // 50% transparency
+                  backgroundColor: "white", // 50% transparency
                   // padding: '20px',
-                  color: 'black',
-                  
+                  color: "black",
                 }}
                 class="  border mx-auto rounded d-flex flex-column p-2 "
               >
@@ -168,7 +208,12 @@ function page() {
                 </div>
                 <div className="col-md-5  mx-auto">
                   <div className="d-grid">
-                    <button type="submit" className="ud-btn btn-danger mt-2">
+                    <button
+                    disabled={loading}
+                      onClick={onSubmit}
+                      type="submit"
+                      className="ud-btn btn-danger mt-2"
+                    >
                       Pay with eganow
                       <i className="fal fa-arrow-right-long" />
                     </button>

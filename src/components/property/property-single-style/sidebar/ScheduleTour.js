@@ -2,11 +2,12 @@
 import { useFormHandler } from "@/app/useform";
 import { defaultFormValues } from "@/app/useform/defaultFormValues";
 import listings from "@/data/listings";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+
 
 const ScheduleTour = ({ id }) => {
   const [price, setPrice] = useState("");
@@ -65,7 +66,7 @@ const ScheduleTour = ({ id }) => {
       let totalAmount = amount * duration;
 
       let sign = data.price.includes("$") ? "$" : "₵";
-      setPrice(`${sign} ${new Intl.NumberFormat().format(totalAmount)}`);
+      setPrice(`${sign}${new Intl.NumberFormat().format(totalAmount)}`);
     }
   }, [watch("duration")]);
 
