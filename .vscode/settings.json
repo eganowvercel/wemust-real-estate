@@ -1,0 +1,8 @@
+{
+    "workbench.colorCustomizations": {
+        "menu.background": "#2e333b70",
+        "menu.selectionBackground": "#4247509a",
+        "editorWidget.background": "#51586320",
+        "quickInput.background": "#2e333b00"
+    }
+}

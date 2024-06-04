@@ -32,7 +32,6 @@ const About = () => {
             <div className="col-lg-12">
               <div className="breadcumb-style1">
                 <h2 className="title">About Us</h2>
-               
               </div>
             </div>
           </div>
@@ -53,15 +52,15 @@ const About = () => {
             </div>
             <div className="col-lg-6">
               <p className="text mb25">
-                Finding the perfect home or investment property shouldn&apos;t be a
-                stressful experience. Our mission is to simplify the real estate
-                process and make it enjoyable for you.
+                Finding the perfect home or investment property shouldn&apos;t
+                be a stressful experience. Our mission is to simplify the real
+                estate process and make it enjoyable for you.
               </p>
               <p className="text mb55">
                 With a commitment to transparency, integrity, and personalized
-                service, we strive to exceed your expectations. Whether you&apos;re
-                buying, selling, or investing, we&apos;re here to guide you every
-                step of the way.
+                service, we strive to exceed your expectations. Whether
+                you&apos;re buying, selling, or investing, we&apos;re here to
+                guide you every step of the way.
               </p>
               <div className="row">
                 <Mission />
@@ -148,7 +147,8 @@ const About = () => {
               >
                 <div className="mb30">
                   <h2 className="title text-capitalize">
-                    Let&apos;s find the right <br className="d-none d-md-block" />
+                    Let&apos;s find the right{" "}
+                    <br className="d-none d-md-block" />
                     selling option for you
                   </h2>
                 </div>
