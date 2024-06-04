@@ -73,6 +73,7 @@ const Contact = () => {
               data-aos-delay="300"
             >
               <div className="main-title text-center">
+                
                 <h2 className="title">Visit Our Office</h2>
                 <p className="paragraph">
                   Visit our office for more enquiries.
@@ -82,7 +83,7 @@ const Contact = () => {
           </div>
           {/* End .row */}
 
-          <div className="row" data-aos="fade-up" data-aos-delay="100">
+          <div  className="row" data-aos="fade-up" data-aos-delay="100">
             <Office />
           </div>
           {/* End .row */}

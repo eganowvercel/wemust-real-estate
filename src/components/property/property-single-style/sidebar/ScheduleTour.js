@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const ScheduleTour = ({ id }) => {
   const [price, setPrice] = useState("");
+  const [iP, setIp] = useState("");
   const data = listings.filter((elm) => elm.id == id)[0] || listings[0];
 
   const router = useRouter();
@@ -31,6 +33,7 @@ const ScheduleTour = ({ id }) => {
     const data = {
       ...values,
       price,
+      iP,
     };
 
     console.log(values);
@@ -41,6 +44,16 @@ const ScheduleTour = ({ id }) => {
     localStorage.setItem("formData", JSON.stringify(data));
     router.push(`/review?q=${id}`);
   }
+
+  const getIp = async () => {
+    const res = await axios.get("https://api.ipify.org/?format=json");
+    setIp(res.data.ip);
+  };
+
+  useEffect(() => {
+    //passing getData method to the lifecycle method
+    getIp();
+  }, []);
 
   useEffect(() => {
     if (data?.price) {
