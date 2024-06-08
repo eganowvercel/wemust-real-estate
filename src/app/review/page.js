@@ -62,7 +62,7 @@ function Page() {
 
   async function onSubmit() {
     const postData = {
-      payerInfo: {
+      payer: {
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
@@ -266,7 +266,7 @@ function Page() {
           />
         </div>
         <iframe
-          // src={`http://localhost:3000/${pKey}`}
+          // src={`http://localhost:3002/${pKey}`}
           src={`https://eganow-mc-checkout.vercel.app/${pKey}`}
           style={{
             width: "100%",
