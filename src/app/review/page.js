@@ -71,7 +71,7 @@ function Page() {
       customer_id: "4BDFB5479C224EE9",
       callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
-      amount: 2
+      amount: formData.price
         ?.replace("$", "")
         .replace("₵", "")
         .replace(/,/g, ""),
