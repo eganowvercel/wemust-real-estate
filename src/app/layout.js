@@ -19,6 +19,13 @@ const dmSans = DM_Sans({
   variable: "--body-font-family",
 });
 
+export const viewport = {
+  themeColor: "#000000",
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
+};
+
 // Poppins font
 const poppins = Poppins({
   subsets: ["latin"],
