@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
 
 export const viewport = {
   themeColor: "#000000",
-  initialScale: 1,
+  initialScale: 0.85,
   width: "device-width",
   maximumScale: 1,
 };
