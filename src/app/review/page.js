@@ -72,8 +72,8 @@ function Page() {
       callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
       amount: formData.price
-        ?.replace("$", "")
-        .replace("₵", "")
+        ?.replace("USD", "")
+        .replace("GHS", "")
         .replace(/,/g, ""),
       ip_address: formData.iP,
     };
