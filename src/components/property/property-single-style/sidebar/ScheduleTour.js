@@ -64,7 +64,7 @@ const ScheduleTour = ({ id }) => {
       let duration = parseInt(getValues("duration"), 10);
       let totalAmount = amount * duration;
 
-      let currency = data.price.includes("$") ? "$" : "₵";
+      let currency = data.price.includes("$") ? "USD" : "GHS";
       console.log(currency);
 
       setValue("currency", currency);

@@ -62,7 +62,7 @@ function Page() {
 
   async function onSubmit() {
     const postData = {
-      payer: {
+      payerInfo: {
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
