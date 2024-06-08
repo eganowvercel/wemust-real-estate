@@ -68,10 +68,10 @@ function Page() {
         email: formData.email,
         mobile_number: formData.phone,
       },
-      customer_id: '4BDFB5479C224EE9',
-      callback_url: "https://localhost:3000",
+      customer_id: "4BDFB5479C224EE9",
+      callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
-      amount: formData.price
+      amount: 2
         ?.replace("$", "")
         .replace("₵", "")
         .replace(/,/g, ""),
@@ -128,9 +128,9 @@ function Page() {
       <MobileMenu />
       {/* End Mobile Nav  */}
 
-      <section className="bgc-f7  ">
+      <section className="bgc-f7  pt60 pb90">
         <div className="container">
-          <div className="row align-items-center" data-aos="fade-up">
+          <div className="row " data-aos="fade-up">
             <div className="col-lg-9">
               <div className="main-title2">
                 <h2 className="title">Review Payment</h2>
@@ -162,29 +162,29 @@ function Page() {
                   // padding: '20px',
                   color: "black",
                 }}
-                class="  border mx-auto rounded d-flex flex-column p-2 "
+                className="  border mx-auto rounded d-flex flex-column p-2 "
               >
-                <div class="p-2 me-3">
+                <div className="p-2 me-3">
                   {/* <h4 className="text-center">Order Recap</h4> */}
                 </div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">First Name</b>
-                  <div class="ms-auto">{formData?.firstName}</div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">First Name</b>
+                  <div className="ms-auto">{formData?.firstName}</div>
                 </div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">Last Name</b>
-                  <div class="ms-auto">{formData?.lastName}</div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">Last Name</b>
+                  <div className="ms-auto">{formData?.lastName}</div>
                 </div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">Telephone No.</b>
-                  <div class="ms-auto">{formData?.phone}</div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">Telephone No.</b>
+                  <div className="ms-auto">{formData?.phone}</div>
                 </div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">Email</b>
-                  <div class="ms-auto">{formData?.email}</div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">Email</b>
+                  <div className="ms-auto">{formData?.email}</div>
                 </div>
 
-                <div class="border-top px-2 mx-2"></div>
+                <div className="border-top px-2 mx-2"></div>
                 {/* <div class="p-2 d-flex pt-3">
                   <div class="col-8">
                     Total Deductible, Coinsurance, and Copay
@@ -197,23 +197,23 @@ function Page() {
                   </div>
                   <div class="ms-auto">$6500.00</div>
                 </div> */}
-                <div class="border-top px-2 mx-2"></div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">Property title</b>
+                <div className="border-top px-2 mx-2"></div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">Property title</b>
                   {/* <div class="ms-auto">{data?.title}</div> */}
                   <GetTitle />
                 </div>
-                <div class="p-2 d-flex">
-                  <b class="col-4">Duration</b>
-                  <div class="ms-auto">{getDuration()}</div>
+                <div className="p-2 d-flex">
+                  <b className="col-4">Duration</b>
+                  <div className="ms-auto">{getDuration()}</div>
                 </div>
-                <div class="border-top px-2 mx-2"></div>
-                <div class="p-2 d-flex pt-3">
-                  <div class="col-8">
+                <div className="border-top px-2 mx-2"></div>
+                <div className="p-2 d-flex pt-3">
+                  <div className="col-8">
                     <b>Total</b>
                   </div>
-                  <div class="ms-auto">
-                    <b class="text-success">{formData?.price}</b>
+                  <div className="ms-auto">
+                    <b className="text-success">{formData?.price}</b>
                   </div>
                 </div>
                 <div className="col-md-5  mx-auto">
