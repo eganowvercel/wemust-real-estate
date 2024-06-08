@@ -3,5 +3,6 @@ export const defaultFormValues =  {
     lastName: "",
     phone: "",
     email: "",
-    duration: ""
+    duration: "",
+    currency: ''
 }

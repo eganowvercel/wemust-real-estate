@@ -17,23 +17,22 @@ import { MdCancel } from "react-icons/md";
 
 const customStyles = {
   content: {
-    top: '52%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    transform: 'translate(-50%, -50%)',
-    padding: '0', // Remove padding
-    backgroundColor: 'transparent', // Make background transparent
-    border: 'none', // Remove border
-    overflow: 'hidden', // Ensure no overflow
+    top: "52%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    transform: "translate(-50%, -50%)",
+    padding: "0", // Remove padding
+    backgroundColor: "transparent", // Make background transparent
+    border: "none", // Remove border
+    overflow: "hidden", // Ensure no overflow
     zIndex: 999999,
-    width: '100%', // Adjust as necessary
-    height: '90%', // Adjust as necessary
+    width: "100%", // Adjust as necessary
+    height: "90%", // Adjust as necessary
   },
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.75)", // Semi-transparent background
     zIndex: 999999, // Higher zIndex value for overlay
-
   },
 };
 
@@ -69,8 +68,9 @@ function Page() {
         email: formData.email,
         mobile_number: formData.phone,
       },
-      customer_id: "4BDFB5479C224EE9",
+      customer_id: '4BDFB5479C224EE9',
       callback_url: "https://localhost:3000",
+      currency: formData.currency,
       amount: formData.price
         ?.replace("$", "")
         .replace("₵", "")
@@ -259,14 +259,15 @@ function Page() {
       >
         <div className=" text-center pb-md-4">
           <MdCancel
-          onClick={closeModal}
+            onClick={closeModal}
             // style={{ top: 0 ,left: 430 }}
             size={24}
             className=" text-center shadow-lg  modal-close "
           />
         </div>
         <iframe
-          src={`http://localhost:3001/${pKey}`}
+          src={`http://localhost:3000/${pKey}`}
+          // src={`https://eganow-mc-checkout.vercel.app/${pKey}`}
           style={{
             width: "100%",
             height: "100%",

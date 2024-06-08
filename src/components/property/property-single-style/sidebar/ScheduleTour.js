@@ -8,7 +8,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-
 const ScheduleTour = ({ id }) => {
   const [price, setPrice] = useState("");
   const [iP, setIp] = useState("");
@@ -17,7 +16,7 @@ const ScheduleTour = ({ id }) => {
   const router = useRouter();
 
   // console.log(data);
-  const { register, handleSubmit, watch, getValues } = useForm({
+  const { register, handleSubmit, watch, getValues, setValue } = useForm({
     mode: "onChange",
     defaultValues: defaultFormValues,
   });
@@ -65,8 +64,12 @@ const ScheduleTour = ({ id }) => {
       let duration = parseInt(getValues("duration"), 10);
       let totalAmount = amount * duration;
 
-      let sign = data.price.includes("$") ? "$" : "₵";
-      setPrice(`${sign}${new Intl.NumberFormat().format(totalAmount)}`);
+      let currency = data.price.includes("$") ? "$" : "₵";
+      console.log(currency);
+
+      setValue("currency", currency);
+
+      setPrice(`${currency}${new Intl.NumberFormat().format(totalAmount)}`);
     }
   }, [watch("duration")]);
 
