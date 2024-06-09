@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import SearchBox from "./SearchBox";
@@ -12,7 +12,7 @@ import SquareFeet from "./SquareFeet";
 import YearBuilt from "./YearBuilt";
 import OtherFeatures from "./OtherFeatures";
 
-const ListingSidebar = ({filterFunctions}) => {
+const ListingSidebar = ({ filterFunctions }) => {
   return (
     <div className="list-sidebar-style1">
       <div className="widget-wrapper">
@@ -35,7 +35,7 @@ const ListingSidebar = ({filterFunctions}) => {
           <PropertyType filterFunctions={filterFunctions} />
         </div>
       </div>
-      
+
       {/* End .widget-wrapper */}
 
       <div className="widget-wrapper">
@@ -58,7 +58,7 @@ const ListingSidebar = ({filterFunctions}) => {
       <div className="widget-wrapper">
         <h6 className="list-title">Bathrooms</h6>
         <div className="d-flex">
-          <Bathroom filterFunctions={filterFunctions}  />
+          <Bathroom filterFunctions={filterFunctions} />
         </div>
       </div>
       {/* End .widget-wrapper */}
@@ -117,16 +117,26 @@ const ListingSidebar = ({filterFunctions}) => {
 
       <div className="widget-wrapper mb20">
         <div className="btn-area d-grid align-items-center">
-          <button className="ud-btn btn-thm">
+          <a
+            className="ud-btn btn-thm"
+            data-bs-toggle="offcanvas"
+            href="#listingSidebarFilter"
+            role="button"
+            aria-controls="listingSidebarFilter"
+          >
             <span className="flaticon-search align-text-top pr10" />
             Search
-          </button>
+          </a>
         </div>
       </div>
       {/* End .widget-wrapper */}
 
       <div className="reset-area d-flex align-items-center justify-content-between">
-        <div onClick={()=>filterFunctions.resetFilter()} className="reset-button cursor" href="#">
+        <div
+          onClick={() => filterFunctions.resetFilter()}
+          className="reset-button cursor"
+          href="#"
+        >
           <span className="flaticon-turn-back" />
           <u>Reset all filters</u>
         </div>

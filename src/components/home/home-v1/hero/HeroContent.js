@@ -60,16 +60,16 @@ const HeroContent = () => {
 
                 <div className="col-md-4 col-lg-3">
                   <div className="d-flex align-items-center justify-content-start justify-content-md-center mt-3 mt-md-0">
-                    <button
+                    {/* <button
                       className="advance-search-btn"
                       type="button"
                       data-bs-toggle="modal"
                       data-bs-target="#advanceSeachModal"
                     >
                       <span className="flaticon-settings" /> Advanced
-                    </button>
+                    </button> */}
                     <button
-                      className="advance-search-icon ud-btn btn-thm ms-4"
+                      className="ud-btn btn-thm"
                       onClick={() =>
                         // router.push("/grid-default", { searchTerm: search })
                         router.push(
@@ -80,7 +80,7 @@ const HeroContent = () => {
                       }
                       type="button"
                     >
-                      <span className="flaticon-search" />
+                      Search
                     </button>
                   </div>
                 </div>
