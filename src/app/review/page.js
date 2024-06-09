@@ -60,7 +60,19 @@ function Page() {
     }
   }
 
-  
+  const parsePrice = (price) => {
+    if (!price) return 0;
+    const cleanedPrice = price
+      .replace("$", "")
+      .replace("₵", "")
+      .replace(/,/g, "");
+    const amount = parseFloat(cleanedPrice);
+    if (isNaN(amount)) {
+      console.error("Invalid amount:", price);
+      return 0; // or handle this error case appropriately
+    }
+    return amount;
+  };
 
   async function onSubmit() {
     const postData = {
@@ -73,10 +85,7 @@ function Page() {
       customer_id: "4BDFB5479C224EE9",
       callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
-      amount: formData.price
-        ?.replace("$", "")
-        .replace("₵", "")
-        .replace(/,/g, ""),
+      amount: parsePrice(formData.price),
       ip_address: formData.iP,
     };
 

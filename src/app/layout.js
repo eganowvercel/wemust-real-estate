@@ -32,6 +32,7 @@ export default function RootLayout({ children }) {
       duration: 1200,
       once: true,
     });
+    
   }, []);
 
   return (
@@ -40,8 +41,8 @@ export default function RootLayout({ children }) {
         className={`body  ${poppins.variable} ${dmSans.variable}`}
         cz-shortcut-listen="false"
       >
-        {/* <div className="wrapper ovh">{children}</div> */}
-        {children}
+        <div className="wrapper ovh">{children}</div>
+        {/* {children} */}
         <ScrollToTop />
       </body>
     </html>

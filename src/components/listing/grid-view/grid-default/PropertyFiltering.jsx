@@ -259,29 +259,26 @@ export default function PropertyFiltering({searchTerm}) {
 
   useEffect(() => {
     setPageNumber(1);
-    if (currentSortingOption == "Newest") {
-      const sorted = [...filteredData].sort(
-        (a, b) => a.yearBuilding - b.yearBuilding
-      );
+  
+    const parsePrice = (price) => {
+      // Removing non-numeric characters except for the decimal point
+      return parseFloat(price.replace(/[^0-9.-]+/g, ""));
+    };
+  
+    if (currentSortingOption.trim() == "Newest") {
+      const sorted = [...filteredData].sort((a, b) => a.yearBuilding - b.yearBuilding);
       setSortedFilteredData(sorted);
     } else if (currentSortingOption.trim() == "Price Low") {
-      const sorted = [...filteredData].sort(
-        (a, b) =>
-          a.price.split("$")[1].split(",").join("") -
-          b.price.split("$")[1].split(",").join("")
-      );
+      const sorted = [...filteredData].sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
       setSortedFilteredData(sorted);
     } else if (currentSortingOption.trim() == "Price High") {
-      const sorted = [...filteredData].sort(
-        (a, b) =>
-          b.price.split("$")[1].split(",").join("") -
-          a.price.split("$")[1].split(",").join("")
-      );
+      const sorted = [...filteredData].sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
       setSortedFilteredData(sorted);
     } else {
       setSortedFilteredData(filteredData);
     }
   }, [filteredData, currentSortingOption]);
+  
 
   return (
     <section className="pt0 pb90 bgc-f7">

@@ -48,8 +48,6 @@ function GridContent() {
 }
 
 const GridDefault = () => {
-
- 
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <GridContent />
