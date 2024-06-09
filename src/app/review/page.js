@@ -60,6 +60,8 @@ function Page() {
     }
   }
 
+  
+
   async function onSubmit() {
     const postData = {
       payerInfo: {
@@ -72,13 +74,13 @@ function Page() {
       callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
       amount: formData.price
-        ?.replace("USD", "")
-        .replace("GHS", "")
+        ?.replace("$", "")
+        .replace("₵", "")
         .replace(/,/g, ""),
       ip_address: formData.iP,
     };
 
-    // console.log(postData);
+    console.log(postData);
     setLoading(true);
 
     try {

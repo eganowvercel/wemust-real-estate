@@ -19,13 +19,6 @@ const dmSans = DM_Sans({
   variable: "--body-font-family",
 });
 
-export const viewport = {
-  themeColor: "#000000",
-  initialScale: 0.85,
-  width: "device-width",
-  maximumScale: 1,
-};
-
 // Poppins font
 const poppins = Poppins({
   subsets: ["latin"],
@@ -47,8 +40,8 @@ export default function RootLayout({ children }) {
         className={`body  ${poppins.variable} ${dmSans.variable}`}
         cz-shortcut-listen="false"
       >
-        <div className="wrapper ovh">{children}</div>
-
+        {/* <div className="wrapper ovh">{children}</div> */}
+        {children}
         <ScrollToTop />
       </body>
     </html>

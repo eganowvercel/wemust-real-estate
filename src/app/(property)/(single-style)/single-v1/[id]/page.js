@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import DefaultHeader from "@/components/common/DefaultHeader";
 import Footer from "@/components/common/default-footer";
 import MobileMenu from "@/components/common/mobile-menu";
@@ -27,11 +27,12 @@ import MortgageCalculator from "@/components/property/property-single-style/comm
 import WalkScore from "@/components/property/property-single-style/common/WalkScore";
 import listings from "@/data/listings";
 
-export const metadata = {
-  title: "WeMust Ghana Company Limited",
-};
+// export const metadata = {
+//   title: "WeMust Ghana Company Limited",
+// };
 
 const SingleV1 = ({ params }) => {
+  console.log(params.id);
 
   // console.log(params);
   return (

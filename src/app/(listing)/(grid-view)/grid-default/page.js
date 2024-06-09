@@ -7,10 +7,6 @@ import React, { Suspense } from "react";
 import PropertyFiltering from "@/components/listing/grid-view/grid-default/PropertyFiltering";
 import { useSearchParams } from "next/navigation";
 
-function SearchBarFallback() {
-  return <>Loading...</>;
-}
-
 function GridContent() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("searchTerm");
@@ -52,8 +48,10 @@ function GridContent() {
 }
 
 const GridDefault = () => {
+
+ 
   return (
-    <Suspense fallback={<SearchBarFallback />}>
+    <Suspense fallback={<div>Loading...</div>}>
       <GridContent />
     </Suspense>
   );
