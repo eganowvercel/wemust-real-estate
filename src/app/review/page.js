@@ -89,7 +89,7 @@ function Page() {
       ip_address: formData.iP,
     };
 
-    console.log(postData);
+    // console.log(postData);
     setLoading(true);
 
     try {
