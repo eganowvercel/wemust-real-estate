@@ -128,6 +128,8 @@ const ScheduleTour = ({ id }) => {
               <div className="mb20">
                 <input
                   type="text"
+                  maxlength="10"
+                  minLength={10}
                   {...register("phone")}
                   className="form-control"
                   placeholder="Phone"
@@ -140,7 +142,7 @@ const ScheduleTour = ({ id }) => {
             <div className="col-lg-12">
               <div className="mb20">
                 <input
-                  type="text"
+                  type="email"
                   {...register("email")}
                   className="form-control"
                   placeholder="Email"
