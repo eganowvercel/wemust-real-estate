@@ -36,7 +36,7 @@ const ScheduleTour = ({ id }) => {
       iP,
     };
 
-    console.log(values);
+    // console.log(values);
 
     if (values.duration === "") {
       return;
@@ -128,8 +128,8 @@ const ScheduleTour = ({ id }) => {
               <div className="mb20">
                 <input
                   type="text"
-                  maxlength="10"
-                  minLength={10}
+                  // maxlength="10"
+                  // minLength={10}
                   {...register("phone")}
                   className="form-control"
                   placeholder="Phone"
