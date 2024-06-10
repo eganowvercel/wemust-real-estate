@@ -9,7 +9,7 @@ import { BASE_URL } from "@/utilis/constants";
 import axios from "axios";
 import Modal from "react-modal";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { Suspense, useState } from "react";
 import { useEffect } from "react";
 import { ClipLoader } from "react-spinners";
@@ -40,6 +40,7 @@ function Page() {
   const [formData, setFormData] = useState();
   const [loading, setLoading] = useState(false); //
   const [pKey, setPkey] = useState("");
+  const router = useRouter();
 
   function GetTitle() {
     const searchParams = useSearchParams();
@@ -76,7 +77,7 @@ function Page() {
 
   async function onSubmit() {
     const postData = {
-      payerInfo: {
+      payer: {
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
@@ -129,6 +130,21 @@ function Page() {
   function closeModal() {
     setIsOpen(false);
   }
+
+  useEffect(() => {
+    const handlePaymentMessage = (event) => {
+      if (event.data === "successful") {
+        router.push("/status?status=success");
+      } else if (event.data === "failed") {
+        router.push("/status?status=failed");
+      }
+    };
+    window.addEventListener("message", handlePaymentMessage);
+
+    return () => {
+      window.removeEventListener("message", handlePaymentMessage);
+    };
+  }, []);
   return (
     <Suspense fallback={<p>...loading</p>}>
       {/* <Header /> */}
@@ -261,6 +277,7 @@ function Page() {
 
       <Modal
         className=""
+        ariaHideApp={false}
         onClick={() => alert("sdf")}
         isOpen={modalIsOpen}
         // onAfterOpen={afterOpenModal}
@@ -277,8 +294,8 @@ function Page() {
           />
         </div>
         <iframe
-          // src={`http://localhost:3002/${pKey}`}
-          src={`https://eganow-mc-checkout.vercel.app/${pKey}`}
+          src={`http://localhost:3002/${pKey}`}
+          // src={`https://eganow-mc-checkout.vercel.app/${pKey}`}
           style={{
             width: "100%",
             height: "100%",
