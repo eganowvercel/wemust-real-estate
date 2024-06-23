@@ -87,8 +87,9 @@ function Page() {
       x_auth: process.env.NEXT_PUBLIC_X_AUTH,
       // customer_id: "4BDFB5479C224EE9",
       callback_url: "https://wemust.vercel.app",
-      // currency: formData.currency,
+      currency: formData.currency,
       amount: parsePrice(formData.price),
+      payment_view_mode: "MODAL"
       // amount: "2",
       // ip_address: formData.iP,
     };
@@ -99,7 +100,7 @@ function Page() {
     setLoading(true);
 
     try {
-      const sendRequest = await axios.post(`https://checkout.eganowpay.com/api/credentials`, postData);
+      const sendRequest = await axios.post(`${BASE_URL}/api/credentials`, postData);
       setLoading(false);
       // console.log(sendRequest.data.public_key);
       if (sendRequest.data.public_key) {
@@ -300,8 +301,8 @@ function Page() {
           />
         </div>
         <iframe
-          src={`http://localhost:3001/${pKey}`}
-          // src={`https://intergrated-checkout.vercel.app/${pKey}`}
+          src={`http://localhost:3000/${pKey}`}
+          // src={`${BASE_URL}/${pKey}`}
           style={{
             width: "100%",
             height: "100%",

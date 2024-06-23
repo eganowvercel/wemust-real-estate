@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://intergrated-checkout.vercel.app/api/credentials'
+export const BASE_URL = 'https://checkout.eganowpay.com'
