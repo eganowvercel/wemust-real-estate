@@ -9,7 +9,7 @@ const Office = () => {
       city: "Accra",
       icon: "/images/icon/london.svg",
       address: "east legon,accra",
-      phoneNumber: "(233) 244 000 000",
+      phoneNumber: "(233) 245 799 703",
     },
     // {
     //   id: 2,
