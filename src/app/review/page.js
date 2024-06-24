@@ -77,25 +77,32 @@ function Page() {
 
   async function onSubmit() {
     const postData = {
-      payer: {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.email,
-        mobile_number: formData.phone,
-      },
-      customer_id: "4BDFB5479C224EE9",
+      // first_name: formData.firstName,
+      // last_name: formData.lastName,
+      // email: formData.email,
+      // mobile_number: formData.phone,
+
+      username: process.env.NEXT_PUBLIC_MERCHANT_USERID,
+      password: process.env.NEXT_PUBLIC_MERCHANT_PASSWORD,
+      x_auth: process.env.NEXT_PUBLIC_X_AUTH,
+      // customer_id: "4BDFB5479C224EE9",
       callback_url: "https://wemust.vercel.app",
       currency: formData.currency,
       amount: parsePrice(formData.price),
-      ip_address: formData.iP,
+      payment_view_mode: "MODAL"
+      // amount: "2",
+      // ip_address: formData.iP,
     };
+
+    
 
     // console.log(postData);
     setLoading(true);
 
     try {
-      const sendRequest = await axios.post(`${BASE_URL}`, postData);
+      const sendRequest = await axios.post(`${BASE_URL}/api/credentials`, postData);
       setLoading(false);
+      // console.log(sendRequest.data.public_key);
       if (sendRequest.data.public_key) {
         setIsOpen(true);
 
@@ -294,8 +301,8 @@ function Page() {
           />
         </div>
         <iframe
-          // src={`http://localhost:3002/${pKey}`}
-          src={`https://eganow-mc-checkout.vercel.app/${pKey}`}
+          // src={`http://localhost:3000/${pKey}`}
+          src={`${BASE_URL}/${pKey}`}
           style={{
             width: "100%",
             height: "100%",
